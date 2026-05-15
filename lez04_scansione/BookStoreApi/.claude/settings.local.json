@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\ACADEMY\\\\Desktop\\\\Coso_AI_Coding\\\\lez04_scansione\\\\BookStoreApi\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\ACADEMY\\\\Desktop\\\\Coso_AI_Coding\\\\lez04_scansione\\\\BookStoreApi\" -Force | ForEach-Object { [PSCustomObject]@{Name=$_.Name; IsDir=$_.PSIsContainer} })",
+      "PowerShell(ls -Recurse \"C:\\\\Users\\\\ACADEMY\\\\Desktop\\\\Coso_AI_Coding\\\\lez04_scansione\\\\BookStoreApi\" -Force | Where-Object { -not $_.PSIsContainer } | Select-Object Name)",
+      "Bash(grep -v \"^\\\\\\\\./$\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\ACADEMY\\\\Desktop\\\\Coso_AI_Coding\\\\lez04_scansione\\\\BookStoreApi\" -Recurse -Force)",
+      "Bash(Select-Object -Property FullName, Extension)",
+      "Bash(Sort-Object FullName)",
+      "Bash(dotnet build *)"
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+@LibreriaApi_HostAddress = http://localhost:5103
+
+GET {{LibreriaApi_HostAddress}}/api/libri
+Accept: application/json
+
+###
+
+GET {{LibreriaApi_HostAddress}}/api/libri/1
+Accept: application/json
+
+###
+
+POST {{LibreriaApi_HostAddress}}/api/libri
+Content-Type: application/json
+
+{
+  "titolo": "I promessi sposi",
+  "autore": "Alessandro Manzoni",
+  "annoPubblicazione": 1827,
+  "genere": "Romanzo storico"
+}
+
+###
+
+PUT {{LibreriaApi_HostAddress}}/api/libri/1
+Content-Type: application/json
+
+{
+  "titolo": "Il nome della rosa",
+  "autore": "Umberto Eco",
+  "annoPubblicazione": 1980,
+  "genere": "Giallo storico"
+}
+
+###
+
+DELETE {{LibreriaApi_HostAddress}}/api/libri/1
+
+###
+
+GET {{LibreriaApi_HostAddress}}/api/utenti
+Accept: application/json
+
+###
+
+GET {{LibreriaApi_HostAddress}}/api/utenti/1
+Accept: application/json
+
+###
+
+POST {{LibreriaApi_HostAddress}}/api/utenti
+Content-Type: application/json
+
+{
+  "nome": "Luca",
+  "cognome": "Verdi",
+  "email": "luca.verdi@example.com"
+}
+
+###
+
+PUT {{LibreriaApi_HostAddress}}/api/utenti/1
+Content-Type: application/json
+
+{
+  "nome": "Mario",
+  "cognome": "Rossi",
+  "email": "mario.rossi@libreria.it"
+}
+
+###
+
+DELETE {{LibreriaApi_HostAddress}}/api/utenti/1
+
+###

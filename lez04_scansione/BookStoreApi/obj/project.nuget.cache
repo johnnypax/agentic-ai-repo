@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "0swp0mTH+Vg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ACADEMY\\Desktop\\Coso_AI_Coding\\lez04_scansione\\BookStoreApi\\BookStoreApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ACADEMY\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.16\\microsoft.netcore.app.ref.9.0.16.nupkg.sha512",
+    "C:\\Users\\ACADEMY\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.16\\microsoft.windowsdesktop.app.ref.9.0.16.nupkg.sha512",
+    "C:\\Users\\ACADEMY\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.16\\microsoft.aspnetcore.app.ref.9.0.16.nupkg.sha512",
+    "C:\\Users\\ACADEMY\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.16\\microsoft.netcore.app.host.win-x64.9.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
