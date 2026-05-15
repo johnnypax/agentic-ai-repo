@@ -1,0 +1,99 @@
+body {
+  background-color: #f5f6fa;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Section titles */
+.section-title {
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: .7rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: .6rem;
+  margin-bottom: 1rem;
+}
+
+/* Card base */
+.card {
+  border-radius: .75rem;
+}
+.card-header {
+  border-radius: .75rem .75rem 0 0 !important;
+}
+
+/* Summary cards */
+.summary-card {
+  border: none !important;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.1) !important;
+}
+.summary-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Department cards */
+.dept-card {
+  border: none !important;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.dept-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.1) !important;
+}
+.dept-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+/* Table */
+.table > :not(caption) > * > * {
+  padding: .7rem 1rem;
+}
+
+/* Department badge in table */
+.dept-badge {
+  font-size: .7rem;
+  font-weight: 500;
+  padding: .3em .65em;
+}
+.dept-badge.text-warning {
+  color: #92400e !important;
+}
+
+/* Avatars */
+.avatar-sm {
+  width: 34px;
+  height: 34px;
+  font-size: .7rem;
+  letter-spacing: -.5px;
+  flex-shrink: 0;
+}
+.avatar-md {
+  width: 46px;
+  height: 46px;
+  font-size: .9rem;
+  letter-spacing: -.5px;
+  flex-shrink: 0;
+}
+
+/* Improve warning color readability on light backgrounds */
+.text-warning {
+  color: #b45309 !important;
+}

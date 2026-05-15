@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__company-dep-mcp__get_user_by_department",
+      "mcp__company-dep-mcp__get_active_users",
+      "mcp__company-dep-mcp__get_department_summary"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "company-dep-mcp"
+  ]
+}
