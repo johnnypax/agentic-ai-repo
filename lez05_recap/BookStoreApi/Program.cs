@@ -1,45 +1,47 @@
+using BookStoreApi.Models;
+using BookStoreApi.Repositories;
+using BookStoreApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
+
 var app = builder.Build();
 
-// Lista in memoria che funge da "database"
-var books = new List<Book>
-{
-    new Book { Id = 1, Title = "Il nome della rosa", Author = "Umberto Eco", Year = 1980 },
-    new Book { Id = 2, Title = "1984", Author = "George Orwell", Year = 1949 },
-    new Book { Id = 3, Title = "Il Signore degli Anelli", Author = "J.R.R. Tolkien", Year = 1954 }
-};
-
 // GET /books - Restituisce tutti i libri
-app.MapGet("/books", () => books);
+app.MapGet("/books", (IBookService service) => service.GetAll());
 
 // GET /books/{id} - Restituisce un singolo libro per ID
-app.MapGet("/books/{id}", (int id) =>
+app.MapGet("/books/{id}", (int id, IBookService service) =>
 {
-    var book = books.FirstOrDefault(b => b.Id == id);
-
-    if (book is null)
-        return Results.NotFound($"Libro con ID {id} non trovato.");
-
-    return Results.Ok(book);
+    var book = service.GetById(id);
+    return book is null
+        ? Results.NotFound($"Libro con ID {id} non trovato.")
+        : Results.Ok(book);
 });
 
 // POST /books - Inserisce un nuovo libro
-app.MapPost("/books", (Book newBook) =>
+app.MapPost("/books", (Book newBook, IBookService service) =>
 {
-    // Genera automaticamente un nuovo ID
-    newBook.Id = books.Count > 0 ? books.Max(b => b.Id) + 1 : 1;
-    books.Add(newBook);
+    var created = service.Add(newBook);
+    return Results.Created($"/books/{created.Id}", created);
+});
 
-    return Results.Created($"/books/{newBook.Id}", newBook);
+// PUT /books/{id} - Aggiorna un libro esistente
+app.MapPut("/books/{id}", (int id, Book updatedBook, IBookService service) =>
+{
+    return service.Update(id, updatedBook)
+        ? Results.Ok(service.GetById(id))
+        : Results.NotFound($"Libro con ID {id} non trovato.");
+});
+
+// DELETE /books/{id} - Elimina un libro per ID
+app.MapDelete("/books/{id}", (int id, IBookService service) =>
+{
+    return service.Delete(id)
+        ? Results.NoContent()
+        : Results.NotFound($"Libro con ID {id} non trovato.");
 });
 
 app.Run();
-
-// Modello Book
-class Book
-{
-    public int Id { get; set; }
-    public string Title { get; set; } = string.Empty;
-    public string Author { get; set; } = string.Empty;
-    public int Year { get; set; }
-}
